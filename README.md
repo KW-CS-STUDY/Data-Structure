@@ -2,6 +2,19 @@
 
 생성일: 2022년 8월 7일 오후 5:27
 
+# 목차
+
+1. 자료구조 종류
+    1. Array(배열)
+    2. List(리스트)
+    3. Stack(스택)
+    4. Queue(큐)
+    5. Double-Ended queue, Deque(덱)
+    6. Graph(그래프)
+    7. Tree(트리)
+
+# 1. 자료구조 종류
+
 ## Array(배열)
 
 ---
