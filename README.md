@@ -12,12 +12,11 @@
     5. Double-Ended queue, Deque(덱)
     6. Graph(그래프)
     7. Tree(트리)
+    8. Heap(힙)
 
 # 1. 자료구조 종류
 
 ## Array(배열)
-
----
 
 - 동일한 크기의 메모리 공간이 빈틈없이 연속적으로 나열된 자료구조
 - 배열의 요소는 동일한 크기를 갖으며, 빈틈없이 연속적으로 이어져 있음
@@ -35,8 +34,6 @@ Random access, O(1)
 - 또한 배열의 길이를 바꿀수 없다는 단점을 가진다
 
 ## List(리스트)
-
----
 
 - 리스트는 배열이 갖고 있는 인덱스라는 장점을 버리고, 대신 빈틈없는 데이터의 적재라는 장점을 취한 자료구조
 - 배열(Array)에서 인덱스는 값에 대한 유일무이한 식별자인데 반해, 리스트에서 인덱스는 몇 번째 데이터 정도의 의미
@@ -62,8 +59,6 @@ Random access, O(1)
 
 ## Stack(스택)
 
----
-
 - LIFO(Last In First Out)
 - 나중에 들어간 요소가 먼저 나옴, 한 쪽 끝에서만 자료를 넣고 뺄 수 있음
 - push: 데이터를 top 위치에 넣기
@@ -76,8 +71,6 @@ Random access, O(1)
     - 역순 문자열 만들기
 
 ## Queue(큐)
-
----
 
 - FIFO(First In First Out)
 - 먼저 들어간 원소가 먼저 나온다. 넣는 방향과 나오는 방향 다름
@@ -93,15 +86,11 @@ Random access, O(1)
 
 ## Double-Ended queue, Deque(덱)
 
----
-
 - 양쪽 끝에서 입출력이 가능한 자료구조
 - 크기가 가변적
 - 삽입, 삭제의 시간 복잡도: O(1)
 
 ## Graph(그래프)
-
----
 
 - 단순히 노드와 그 노드를 연결하는 간선을 하나로 모아놓은 자료 구조
 - 관련 용어
@@ -147,9 +136,43 @@ Random access, O(1)
         - 무방향그래프는 대칭행렬이 된다.
         - 인접행렬에 비해 효율성이 조금 떨어짐
 
-## Tree(트리)
+---
+
+**2주차**
+
+- 인접 리스트와 인접 행렬 중 선택 방법
+    - 인접 리스트
+        - 그래프 내에 적은 숫자의 간선만을 가지는 희소 그래프(Sparse Graph)의 경우
+        - 장점
+            - 어떤 노드에 인접한 노드 쉽게 찾을 수 있음
+            - 그래프에 존재하는 모든 간선의 수는 O(N+E) 안에 알 수 있다.
+        - 단점
+            - 간선의 존재 여부와 정점의 차수: 정점 i의 리스트에 있는 노드의 수 즉, 정점 차수 만큼의 시간 소요
+    - 인접 행렬
+        - 그래프에 간선이 많이 존재하는 밀집 그래프(Dense Graph)의 경우
+        - 장점
+            - 두 정점을 연결하는 간선의 존재 여부 (M[i][j])를 O(1) 안에 즉시 알 수 있다.
+            - 정점의 차수는 O(N) 안에 알 수 있다. 인접 배열의 i 번쨰 행 또는 열을 모두 더한다.
+        - 단점
+            - 어떤 노드에 인접한 노드들을 찾기 위해서는 모든 노드를 전부 순회해야한다.
+            - 그래프에 존재하는 모든 간선의 수는 O(N^2) 안에 알 수 있다, 행렬 전체 조사해야함
+- 그래프의 탐색
+    1. 깊이 우선 탐색 (DFS, Depth-First Search)
+        
+        루트 노드(혹은 다른 임의의 노드)에서 시작해서 다음 분기(branch)로 넘어가기 전에 해당 분기를 완벽하게 탐색하는 방법
+        
+        - 넓게 탐색하기 전에, 깊게 탐색하는 방법
+        - 모든 노드를 방문하고자 하는 경우에 해당 방법을 선택한다.
+    2. 너비 우선 탐색 (BFS, Breadth-First Search)
+        
+        루트 노드(혹은 다른 임의의 노드)에서 시작해서 인접한 노드를 먼저 탐색하는 방법
+        
+        - 깊게 탐색하기 전에, 넓게 탐색하는 방법
+        - 두 노드 사이의 최단 경로 혹은 임의의 경로를 찾고 싶을 때 사용
 
 ---
+
+## Tree(트리)
 
 - 트리는 하나의 루트 노드를 가짐, 루트 노드는 0개 이상의 자식 노드를 갖고 있고, 
 그 자식 노드 또한 0개 이상의 자식 노드를 가지며, 이는 반복적으로 정의
@@ -176,5 +199,100 @@ Random access, O(1)
     - 노드가 N개인 트리는 항상 N-1개의 간선을 가짐, 간선은 항상 정점 개수-1 만큼 가짐
     - 루트에서 어떤 노드로 가는 경로는 유일
     - 하나의 루트 노드만 존재, 자식 노드는 한개의 부모 노드만을 가짐
-    - 순회는 Pre-order, In-order, Post-order로 이루어짐
     - 이진 트리, 이진 탐색 트리, 균형 트리(AVL 트리, red-black 트리) 이진 힙 등이 있음
+
+---
+
+- 트리의 종류
+    - 이진 트리(Binary Tree)
+        - 각 노드가 최대 두개의 자식을 갖는 트리
+        - 모든 트리가 이진 트리는 아님
+        - 순회는 Pre-order, In-order, Post-order로 이루어짐
+            - 전위 순회(Pre-Order Traversal): 현재 노드 → 왼쪽 가지 → 오른쪽 가지
+            
+            ```jsx
+            void preOrderTraversal(TreeNode node) {
+              if(node != null) {
+               visit(node);
+               preOrderTraversal(node.left);
+               preOrderTraversal(node.right);
+              }
+            }
+            https://gmlwjd9405.github.io/2018/08/12/data-structure-tree.html
+            ```
+            
+            - 중위 순회(In-Order Traversal): 왼쪽 가지 → 현재 노드 → 오른쪽 가지
+            
+            ```jsx
+            void inOrderTraversal(TreeNode node) {
+              if(node != null) {
+               inOrderTraversal(node.left);
+               visit(node);
+               inOrderTraversal(node.right);
+              }
+            }
+            https://gmlwjd9405.github.io/2018/08/12/data-structure-tree.html
+            ```
+            
+            - 후위 순회(Post-Order Traversal): 왼쪽 가지 → 오른쪽 가지 → 현재노드
+            
+            ```jsx
+            void postOrderTraversal(TreeNode node) {
+              if(node != null) {
+               postOrderTraversal(node.left);
+               postOrderTraversal(node.right);
+               visit(node);
+              }
+            }
+            https://gmlwjd9405.github.io/2018/08/12/data-structure-tree.html
+            ```
+            
+        - 이진 탐색 트리(Binary Search Tree)
+            - 모든 노드가 ‘모든 왼쪽 자식들 ≤ n < 모든 오른쪽 자식들’이라는 특정 순서를 따르는 속성이 있는 이진 트리
+    - 균형 트리
+        - O(logN) 시간에 insert와 find를 할 수 있을 정도로 균형이 잘 잡혀 있는 경우
+        - Ex) 레드-블랙 트리, AVL 트리
+    - 완전 이진 트리(Complete Binary Tree)
+        - 트리의 모든 높이에서 노드가 꽉 차 있는 이진 트리. 즉, 마지막 레벨을 제외하고 모든 레벨이 완전히 채워져 있음
+        - 마지막 레벨은 꽉 차 있지 않아도 되지만, 노드가 왼쪽에서 오른쪽으로 채워져야함.
+        - 마지막 레벨 h에서 (1~2h-1)개의 노드를 가질 수 있다.
+        - 완전 이진 트리는 배열을 사용해 효율적으로 표현 가능하다.
+    - 전 이진 트리(Full Binary Tree 또는 Strictly Binary Tree)
+        - 모든 노드가 0개 또는 2개의 자식 노드를 갖는 트리
+    - 포화 이진 트리(Perfect Binary Tree)
+        - 전 이진 트리이면서 완전 이진 트리인 경우
+        - 모든 말단 노드는 같은 높이에 있어야 하며, 마지막 단계에서 노드의 개수가 최대가 되어야 한다.
+        - 모든 내부 노드가 두개의 자식 노드를 가진다.
+        - 모든 말단 노드가 동일한 깊이 또는 레벨을 갖는다.
+        - 노드의 개수가 정확히 $2^{k-1}$개여야 한다.($k$: 트리의 높이) → 흔하게 나타는 경우가 아님. 즉, 이진 트리가 모두 포화 이진트리라고 생각하면 안됨
+    
+
+## Heap(힙)
+
+- 완전 이진 트리의 일종으로 우선순위 큐를 위하여 만들어진 자료구조
+- 여러 개의 값들 중에서 최댓값이나 최솟값을 빠르게 찾아내도록 만들어진 자료구조
+- 힙은 일종의 반정렬 상태(느슨한 정렬 상태)를 유지한다.
+    - 큰 값이 상위 레벨에 있고, 작은 값이 하위 레벨에 있다는 정도
+    - 간단히 말하면 부모 노드의 키 값이 자식 노드의 키 값보다 항상 큰(작은) 이진 트리를 말함
+- 힙 트리에서는 중복된 값을 허용한다. (이진 탐색 트리에서는 중복된 값을 허용하지 않는다.)
+- 힙의 종류
+    - 최대 힙(Max heap)
+        - 부모 노드의 키 값이 자식 노드의 키 값보다 크거나 같은 완전 이진 트리
+        - key(부모 노드) ≥ key(자식 노드)
+    - 최소 힙(Min heap)
+        - 부모 노드의 키 값이 자식 노드의 키 값보다 작거나 같은 완전 이진 트리
+        - key(부모 노드) ≤ key(자식 노드)
+        
+        ![https://gmlwjd9405.github.io/images/data-structure-heap/types-of-heap.png](https://gmlwjd9405.github.io/images/data-structure-heap/types-of-heap.png)
+        
+- 힙의 구현
+    - 힙을 저장하는 표준적인 자료구조는 배열
+    - 구현을 쉽게 하기 위하여 배열의 첫번째 인덱스인 0은 사용안함
+    - 특정 위치의 노드 번호는 새로운 노드가 추가 되어도 변하지 않는다.
+        - 예를 들어 루트 노드의 오른쪽 노드의 번호는 항상 3이다.
+    - 힙에서의 부모 노드와 자식 노드의 관계
+        - 왼쪽 자식의 인덱스 = (부모의 인덱스) * 2
+        - 오른쪽 자식의 인덱스 = (부모의 인덱스) * 2 + 1
+        - 부모의 인덱스 = (자식의 인덱스) / 2
+        
+        ![https://gmlwjd9405.github.io/images/data-structure-heap/heap-index-parent-child.png](https://gmlwjd9405.github.io/images/data-structure-heap/heap-index-parent-child.png)
