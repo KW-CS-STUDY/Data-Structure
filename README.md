@@ -4,7 +4,8 @@
 
 # 목차
 
-1. 자료구조 종류
+1. 자료 구조 정의
+2. 자료 구조 종류
     1. Array(배열)
     2. List(리스트)
     3. Stack(스택)
@@ -14,7 +15,11 @@
     7. Tree(트리)
     8. Heap(힙)
 
-# 1. 자료구조 종류
+# 1.  자료 구조 정의
+
+자료 구조란 데이터의 편리한 접근과 조작을 가능하게 하는 데이터를 저장하거나 조작하는 방법이다. 문맥과 데이터의 종류에 따라 적절한 자료 구조를 사용하는 것은 전체 개발 시스템에 큰 영향을 끼친다. 그렇기 때문에 자료 구조의 다양한 종류와 각각의 장점과 한계를 잘 이해하고 상황에 맞게 올바른 자료 구조를 선택하고 사용하는 것이 중요하다.
+
+# 2. 자료 구조 종류
 
 ## Array(배열)
 
@@ -203,8 +208,8 @@ Random access, O(1)
 
 ---
 
-- 트리의 종류
-    - 이진 트리(Binary Tree)
+- **트리의 종류**
+    - **이진 트리(Binary Tree)**
         - 각 노드가 최대 두개의 자식을 갖는 트리
         - 모든 트리가 이진 트리는 아님
         - 순회는 Pre-order, In-order, Post-order로 이루어짐
@@ -247,19 +252,63 @@ Random access, O(1)
             https://gmlwjd9405.github.io/2018/08/12/data-structure-tree.html
             ```
             
-        - 이진 탐색 트리(Binary Search Tree)
+        - **이진 탐색 트리(Binary Search Tree)**
             - 모든 노드가 ‘모든 왼쪽 자식들 ≤ n < 모든 오른쪽 자식들’이라는 특정 순서를 따르는 속성이 있는 이진 트리
-    - 균형 트리
+            - 각 노드에 중복되지 않는 키(key)가 있다.
+            - 좌우 서브 트리도 모두 이진 탐색 트리여야 한다.
+                
+                [https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbirxyY%2Fbtq90mluHfW%2FBll0dguHQZTWOq37khBkRk%2Fimg.png](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbirxyY%2Fbtq90mluHfW%2FBll0dguHQZTWOq37khBkRk%2Fimg.png)
+                
+            - 이진 탐색 트리 **탐색**
+                1. 루트 노드의 키와 찾고자 하는 값을 비교한다. 찾고자 하는 값이라면 탐색 종료
+                2. 찾고자 하는 값이 루트 노드의 키보다 작다면 왼쪽 서브 트리로 탐색 진행
+                3. 찾고자 하는 값이 루트 노드의 키보다 크다면 오른쪽 서브 트리로 탐색 진행
+                - 위 과정을 찾고자 하는 값을 찾을 때까지 반복해서 진행. 만약 찾지 못한다면 그대로 종료
+                - 위와 같은 과정을 거치면 최대 트리의 높이(h)만큼의 탐색이 진행되게 된다.
+                
+                [https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FpEBxn%2Fbtq9ReoXZUX%2F7zobmK5yQPPupKqGRgdHcK%2Fimg.png](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FpEBxn%2Fbtq9ReoXZUX%2F7zobmK5yQPPupKqGRgdHcK%2Fimg.png)
+                
+            - 이진 탐색 트리 **삽입**
+                1. 삽입할 값을 루트 노드와 비교해 같다면 오류를 발생(중복값 허용 X)
+                2. 삽입할 값이 루트 노드의 키보다 작다면 왼쪽 서브 트리를 탐색해서 비어있다면 추가하고, 비어 있지 않다면 다시 값을 비교.
+                3. 삽입할 값이 루트 노드의 키보다 크다면 오른쪽 서브 트리를 탐색해서 비어있다면 추가하고, 비어있지 않다면 다시 값을 비교.
+                
+                [https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FczCET0%2Fbtq9Ov57XGz%2F7HO8dK5PcnF24WwHYwjOOK%2Fimg.png](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FczCET0%2Fbtq9Ov57XGz%2F7HO8dK5PcnF24WwHYwjOOK%2Fimg.png)
+                
+                [https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdpBA2w%2Fbtq9RdRgKoI%2Flf9C3qqbPZtLCFYNSnJGXk%2Fimg.png](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdpBA2w%2Fbtq9RdRgKoI%2Flf9C3qqbPZtLCFYNSnJGXk%2Fimg.png)
+                
+            - 이진 탐색 트리의 **삭제**
+                - 이진 탐색 트리에서 특정 노드를 삭제할 때 아래와 같은 3가지 상황을 나누어 구현해야함
+                    1. 삭제하려는 노드가 단말 노드(leaf node)일 경우
+                        - 삭제할 노드의 부모 노드가 있다면 부모 노드의 자식 노드를 NULL로 만들고, 삭제할 노드를 삭제(메모리 해제) 해주면 된다.
+                    2. 삭제하려는 노드의 서브 트리가 하나인 경우(왼쪽 혹은 오른쪽 서브트리)
+                        - 삭제할 노드의 자식 노드를 삭제할 노드의 부모 노드가 가리키게 하고 해당 노드를 삭제 하면 된다.
+                    3. 삭제하려는 노드의 서브 트리가 두 개인 경우
+                        - 가장 복잡한 경우, 두 가지 방법을 사용할 수 있다.
+                        1. 삭제할 노드 왼쪽 서브트리의 가장 큰 자손을 해당 노드의 자리에 올린다.
+                        
+                            
+                            [https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbcTUrX%2Fbtq92Q1tw0m%2FtyYJcuLUtWj7kD5k3qAeMK%2Fimg.png](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbcTUrX%2Fbtq92Q1tw0m%2FtyYJcuLUtWj7kD5k3qAeMK%2Fimg.png)
+                            
+                            위와 같이 삭제할 노드의 왼쪽 서브트리에서 가장 큰 자손을 해당 노드의 자리에 올리면, 이진 탐색 트리의 조건을 만족하면서 트리가 유지되는 것을 확인할 수 있다. 또한 자리를 옮기면서 다른 노드들(4번 노드)도 자리가 적절히 이동한 것을 확인할 수 있다.
+                            
+                        2. 삭제할 노드 오른쪽 서브트리의 가장 작은 자손을 해당 노드의 자리에 올린다.
+                            
+                            [https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbI3IEY%2Fbtq9Rc54r92%2FnDvEWCXdq9qVmYaYiHKAAK%2Fimg.png](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbI3IEY%2Fbtq9Rc54r92%2FnDvEWCXdq9qVmYaYiHKAAK%2Fimg.png)
+                            
+                            위와 같이 삭제할 노드의 오른쪽 서브트리에서 가장 작은 자손을 해당 노드의 자리에 올리면, 이진 탐색 트리의 조건을 만족하면서 트리가 유지되는 것을 확인할 수 있다. 또한 자리를 옮기면서 다른 노드들도 자리가 적절히 이동한 것을 확인할 수 있다.
+                            
+    - **균형 트리**
         - O(logN) 시간에 insert와 find를 할 수 있을 정도로 균형이 잘 잡혀 있는 경우
         - Ex) 레드-블랙 트리, AVL 트리
-    - 완전 이진 트리(Complete Binary Tree)
+    - **완전 이진 트리(Complete Binary Tree)**
         - 트리의 모든 높이에서 노드가 꽉 차 있는 이진 트리. 즉, 마지막 레벨을 제외하고 모든 레벨이 완전히 채워져 있음
         - 마지막 레벨은 꽉 차 있지 않아도 되지만, 노드가 왼쪽에서 오른쪽으로 채워져야함.
         - 마지막 레벨 h에서 (1~2h-1)개의 노드를 가질 수 있다.
         - 완전 이진 트리는 배열을 사용해 효율적으로 표현 가능하다.
-    - 전 이진 트리(Full Binary Tree 또는 Strictly Binary Tree)
+    - **전 이진 트리(Full Binary Tree 또는 Strictly Binary Tree)**
         - 모든 노드가 0개 또는 2개의 자식 노드를 갖는 트리
-    - 포화 이진 트리(Perfect Binary Tree)
+    - **포화 이진 트리(Perfect Binary Tree)**
         - 전 이진 트리이면서 완전 이진 트리인 경우
         - 모든 말단 노드는 같은 높이에 있어야 하며, 마지막 단계에서 노드의 개수가 최대가 되어야 한다.
         - 모든 내부 노드가 두개의 자식 노드를 가진다.
@@ -275,7 +324,7 @@ Random access, O(1)
     - 큰 값이 상위 레벨에 있고, 작은 값이 하위 레벨에 있다는 정도
     - 간단히 말하면 부모 노드의 키 값이 자식 노드의 키 값보다 항상 큰(작은) 이진 트리를 말함
 - 힙 트리에서는 중복된 값을 허용한다. (이진 탐색 트리에서는 중복된 값을 허용하지 않는다.)
-- 힙의 종류
+- **힙의 종류**
     - 최대 힙(Max heap)
         - 부모 노드의 키 값이 자식 노드의 키 값보다 크거나 같은 완전 이진 트리
         - key(부모 노드) ≥ key(자식 노드)
@@ -285,7 +334,7 @@ Random access, O(1)
         
         ![https://gmlwjd9405.github.io/images/data-structure-heap/types-of-heap.png](https://gmlwjd9405.github.io/images/data-structure-heap/types-of-heap.png)
         
-- 힙의 구현
+- **힙의 구현**
     - 힙을 저장하는 표준적인 자료구조는 배열
     - 구현을 쉽게 하기 위하여 배열의 첫번째 인덱스인 0은 사용안함
     - 특정 위치의 노드 번호는 새로운 노드가 추가 되어도 변하지 않는다.
@@ -296,3 +345,20 @@ Random access, O(1)
         - 부모의 인덱스 = (자식의 인덱스) / 2
         
         ![https://gmlwjd9405.github.io/images/data-structure-heap/heap-index-parent-child.png](https://gmlwjd9405.github.io/images/data-structure-heap/heap-index-parent-child.png)
+        
+
+---
+
+- **힙의 삽입**
+    1. 힙에 새로운 요소가 들어오면, 일단 새로운 노드를 힙의 마지막 노드에 이어서 삽입한다.
+    2. 새로운 노드를 부모 노드들과 교환해서 힙의 성질을 만족시킨다.
+    
+    ![https://gmlwjd9405.github.io/images/data-structure-heap/maxheap-insertion.png](https://gmlwjd9405.github.io/images/data-structure-heap/maxheap-insertion.png)
+    
+- **힙의 삭제**
+    1. 최대 힙에서 최댓값은 루트 노드이므로 루트 노드가 삭제된다.
+        - 최대 힙에서 삭제 연산은 최댓값을 가진 요소를 삭제하는 것이다.
+    2. 삭제된 루트 노드에는 힙의 마지막 노드를 가져온다.
+    3. 힙을 재구성한다.
+    
+    ![https://gmlwjd9405.github.io/images/data-structure-heap/maxheap-delete.png](https://gmlwjd9405.github.io/images/data-structure-heap/maxheap-delete.png)
